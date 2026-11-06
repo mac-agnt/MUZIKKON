@@ -1,8 +1,8 @@
-# Pulse — Harbour
+# Muzikkon, powered by Pulse
 
-React build of the **Pulse v5 Harbour** design from Claude Design, the operations dashboard mocked up for Kilbride Group.
+A sales demo of **Pulse** for Muzikkon Ltd (Dublin): an oversight layer that sits alongside Muzikkon's existing Shopify site and custom ERP.
 
-Every page, theme and interaction from the design is here. Screens were checked against the original mockup and match pixel for pixel at 1440×900 and 1024×720.
+Everything is a **frontend demo with illustrative data**. Nothing is sent, imported, paid or called, and no external system (Shopify, the ERP, email, carriers, banking, ad platforms) is connected. Product names and list prices follow the public muzikkon.com listings; customers, orders, invoices and staff are fictional.
 
 ## Run it
 
@@ -12,46 +12,28 @@ npm run dev        # http://localhost:5173
 npm run build      # type-check + production build into dist/
 ```
 
-## What's in it
+## What is in it
 
 | Area | Where |
 | --- | --- |
-| Pages: Home (Helios chat), Agents, Dashboard, Work, Records, Activity, Settings | `src/views/pages/` |
-| Overlays: ⌘K palette, agent studio, Helios mini chat, work viewer, new record, background gallery | `src/views/overlays/` |
-| App frame: sidebar, top bar, notifications | `src/views/AppShell.tsx` |
-| State and behaviour | `src/logic/PulseLogic.js` |
-| Demo data (Kilbride Group) | `src/logic/data.js` |
-| Agent avatar | `src/components/AgentFace.tsx` |
-| Theme tokens (Harbour, light and 11 more), animations | `src/styles/pulse.css` |
+| Central typed dataset (12 orders, products, customers, invoices, agents, tasks, activity) | `src/muz/dataset.ts` |
+| Local demo state and every action (import, QC, approvals, reminders, reorders) | `src/muz/store.ts` |
+| Derived totals (every number on every screen comes from here) | `src/muz/selectors.ts` |
+| UI kit built on the Pulse glass tokens | `src/muz/ui.tsx` |
+| Pages: Orders, Inventory, Fulfilment, Customers, Finance, Agents, Dashboard, Work, Activity, Settings, Records | `src/muz/pages/` |
+| Record drawers (order, product, customer, invoice, conversation, PO) | `src/muz/drawers.tsx` |
+| Pulse AI answers grounded in the dataset (no LLM) | `src/muz/chat.ts` |
+| Home, ontology graph, app frame, command palette | `src/views/`, `src/logic/` |
+| Muzikkon theme (charcoal and antique gold, plus cream light theme) | `src/styles/pulse.css` |
 
-## How it fits together
+Scenario date is fixed to **Friday 6 November 2026**, so the demo never drifts with the real date. Only the Home greeting follows the viewer's local time.
 
-- **`PulseLogic`** holds all state. Its `renderVals()` returns one flat object `v`.
-- **Views** are plain React components that render from `v`.
-- **`LogicHost`** (`src/runtime/logic.tsx`) mounts the logic and re-renders on `setState`.
-- **Backgrounds** live in `src/App.tsx`:
-  - `dashboardBackdrop`: the colour of the Dashboard KPI background
-  - `kpiBackdropOn`: whether that background shows
-  - `recordsBackdrop`: the colour of the Records wash (`""` uses the theme gradient)
-- **Customising for a client:** read `CLAUDE.md` first. It lists the layout rules every copy keeps.
+## Story threads
 
-## Updating from Claude Design
+A. MZ-1042 Shopify order missing from the ERP: simulate the import. B. St Brigid's credit hold and overdue INV-208: reminder and conditional release (invoice never auto-paid). C. MZ-1044 lute quality check. D. MZ-1041 US tracking enquiry and AI draft reply. E. 15 String Trinity Cèilidh Harp shortage: purchase order approval and simulated goods receipt.
 
-Export the new version, replace the file in `design/`, then run:
+Settings, then Experience, has a suggested eight-step demo path and a Reset demo button.
 
-```bash
-npm run import-design
-```
+## Template notes
 
-This regenerates:
-
-- `src/views/`
-- `src/styles/pulse.css`
-- `src/styles/interactions.css`
-- `src/logic/`
-
-`AgentFace` is hand-written and left alone. Commit before running, because it overwrites hand edits to those files.
-
-## Fixed from the mockup
-
-In the mockup, the work viewer's wrapper `<div>` was never closed. As a result, the ⌘K palette, agent studio, new record dialog and background gallery could only appear while the work viewer was open. They now open on their own. The fix is applied in `tools/import-design.mjs`.
+The app frame, graph and design tokens come from the Pulse v5 Harbour template. See `CLAUDE.md` for the layout rules every client copy keeps.

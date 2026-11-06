@@ -1,0 +1,18 @@
+/* Muzikkon module styles: hover/focus states for the demo pages. Tokens come from pulse.css. */
+.mz-row{transition:background .18s var(--ease)}
+.mz-row.mz-click:hover{background:var(--surface-2)}
+.mz-card{transition:border-color .25s var(--ease)}
+.mz-kpi{transition:border-color .25s var(--ease),transform .25s var(--ease),background .25s var(--ease)}
+.mz-kpi.mz-click:hover{transform:translateY(-2px);border-color:var(--accent-line)}
+.mz-click:active{transform:scale(.995)}
+.mz-btn{transition:background .2s var(--ease),border-color .2s var(--ease),transform .15s var(--ease),opacity .2s var(--ease)}
+.mz-btn:not(:disabled):hover{border-color:var(--accent-line)}
+.mz-btn-primary:not(:disabled):hover{filter:brightness(1.07)}
+.mz-btn:not(:disabled):active{transform:scale(.97)}
+.mz-chip:hover{border-color:var(--accent-line)}
+.mz-reclink:hover{text-decoration:underline;text-underline-offset:3px}
+.mz-page input[type=text],.mz-page textarea,.mz-page select{font-size:13px}
+.mz-page textarea{outline:0;resize:vertical}
+.mz-page select{background:var(--surface-2);border:1px solid var(--border);border-radius:var(--r-ctl,999px);padding:0 12px;height:36px;color:var(--ink);outline:0}
+.mz-focus:focus-within{border-color:var(--accent-line)}
+.mz-logo-tile{background:#f6f3ec;border-radius:12px;display:flex;align-items:center;justify-content:center;overflow:hidden}

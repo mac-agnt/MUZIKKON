@@ -1,4 +1,4 @@
-/* Demo data and pure helpers for the Pulse prototype (Kilbride Group). */
+/* Demo data and pure helpers for the Pulse prototype (Muzikkon Ltd, illustrative). */
 
 const INK="var(--ink)", BODY="var(--body)", DIM="var(--dim)", FAINT="var(--faint)";
 const LIME="var(--accent)", GREEN="var(--ok)", AMBER="var(--warn)", RED="var(--bad)", NEUTRAL="var(--neutral)";
@@ -32,21 +32,27 @@ const ICONS = {
   records:"M6.4 3.6h7.4l4.2 4.2v12.6H6.4V3.6Z M13.4 3.8v4.2h4.2 M9 12.4h6 M9 16h4",
   tree:"M4.5 6h5 M4.5 12h5 M4.5 18h5 M12.5 6h7 M12.5 12h7 M12.5 18h7",
   graph:"M7 7.4a2.4 2.4 0 1 0 0-4.8 2.4 2.4 0 0 0 0 4.8Z M17.6 10.4a2.4 2.4 0 1 0 0-4.8 2.4 2.4 0 0 0 0 4.8Z M9.4 21.4a2.4 2.4 0 1 0 0-4.8 2.4 2.4 0 0 0 0 4.8Z M8.6 6.4l7.6 2.6 M15.8 11.4l-5.6 5.2",
-  bell:"M6 8.5a6 6 0 0 1 12 0c0 6.5 2.6 8.5 2.6 8.5H3.4S6 15 6 8.5Z M10.3 20.5a1.94 1.94 0 0 0 3.4 0"
+  bell:"M6 8.5a6 6 0 0 1 12 0c0 6.5 2.6 8.5 2.6 8.5H3.4S6 15 6 8.5Z M10.3 20.5a1.94 1.94 0 0 0 3.4 0",
+  mzOrders:"M7.2 4.4h9.6A1.8 1.8 0 0 1 18.6 6.2v13.4L16.4 18.2l-2.2 1.4-2.2-1.4-2.2 1.4-2.2-1.4-1.4.9V6.2A1.8 1.8 0 0 1 7.2 4.4Z M8.8 9h6.4 M8.8 12.4h6.4",
+  mzInventory:"M3.6 8.4 12 4l8.4 4.4v7.2L12 20 3.6 15.6V8.4Z M3.6 8.4 12 12.8l8.4-4.4 M12 12.8V20",
+  mzFulfil:"M2.8 7.2h11.6v9.6H2.8V7.2Z M14.4 10.2h3.6l2.8 2.8v3.8h-6.4v-6.6Z M7 19a1.6 1.6 0 1 0 0-.01 M17.2 19a1.6 1.6 0 1 0 0-.01",
+  mzCustomers:"M9 11.4a3.4 3.4 0 1 0 0-6.8 3.4 3.4 0 0 0 0 6.8Z M2.8 19.6c.7-3 3.1-4.8 6.2-4.8s5.5 1.8 6.2 4.8 M16.2 11a2.7 2.7 0 1 0 0-5.4 M17.4 14.9c2 .4 3.4 1.9 3.8 4.2",
+  mzFinance:"M12 3.6c4.6 0 8.4 3.8 8.4 8.4s-3.8 8.4-8.4 8.4-8.4-3.8-8.4-8.4S7.4 3.6 12 3.6Z M14.6 9.2c-.5-.8-1.5-1.2-2.6-1.2-1.5 0-2.6.8-2.6 2s1 1.7 2.6 2 2.6.8 2.6 2-1.1 2-2.6 2c-1.1 0-2.1-.4-2.6-1.2 M12 6v1.6 M12 16.4V18"
 };
 
 /* Ontology stays first and is never removed (PulseLogic enforces this too). */
 const REC_SECTIONS = [
-  {id:"ontology", label:"Ontology", blurb:"How every record connects: entities, predicates and the paths between them."},
-  {id:"files", label:"Files", blurb:"Documents, contracts and certificates — indexed where Helios can read them."},
-  {id:"contacts", label:"Contacts", blurb:"Every person the business deals with, staff and external."}
+  {id:"ontology", label:"Ontology", blurb:"How every Muzikkon record connects: customers, orders, products, stock, invoices and shipments."},
+  {id:"explorer", label:"Records Explorer", blurb:"Search and inspect every record in the illustrative operating dataset."},
+  {id:"relationships", label:"Relationships", blurb:"Follow a record to everything it is connected to."},
+  {id:"audit", label:"Audit History", blurb:"Staff actions, approvals and simulated system changes."}
 ];
 
 const CONTACTS = [
-  ["Aoife Nolan","Accounts manager","aoife@kilbridegroup.ie","Kilbride Group","staff","var(--accent)"],
-  ["Séamus Byrne","Senior installer","seamus@kilbridegroup.ie","Kilbride Group","staff","#9fd6f0"],
-  ["Tom Walsh","Operations lead","tom@kilbridegroup.ie","Kilbride Group","staff","#e6c78a"],
-  ["Niamh Cronin","Trade counter","niamh@kilbridegroup.ie","Kilbride Group","staff","#c8b4f0"],
+  ["Aoife Nolan","Accounts manager","aoife@pulse-demo.invalid","Muzikkon","staff","var(--accent)"],
+  ["Séamus Byrne","Senior installer","seamus@pulse-demo.invalid","Muzikkon","staff","#9fd6f0"],
+  ["Tom Walsh","Operations lead","tom@pulse-demo.invalid","Muzikkon","staff","#e6c78a"],
+  ["Niamh Cronin","Trade counter","niamh@pulse-demo.invalid","Muzikkon","staff","#c8b4f0"],
   ["Dermot Casey","Buyer","dermot@caseybuilders.ie","Casey Builders","customer","#9fd6f0"],
   ["Liam Dunne","Owner","liam@dunneandsons.ie","Dunne & Sons Ltd","on stop","#e2a08c"],
   ["Máire Fitzgerald","Director","maire@fitzheating.ie","Fitzgerald Heating","watch","#e6c78a"],
@@ -80,7 +86,7 @@ const FILE_TREE = [
   {type:"file", id:"fl-4", name:"Public liability — 2026.pdf", depth:1, parent:"f-cert", indexed:false,
    path:"Certificates / Insurance", title:"Public liability — 2026",
    facts:[["TYPE","PDF · 12 pages"],["EXPIRES","1 Apr 2027"],["INDEXED","Not indexed"],["OWNER","Operations"]],
-   body:["Cover to €6.5m across all three locations. Not indexed, so Helios cannot answer questions from it yet.",
+   body:["Cover to €6.5m across all three locations. Not indexed, so Pulse AI cannot answer questions from it yet.",
      "Indexing it would let the site-visits module check cover before a job is booked at a new address."],
    links:[["Head office","location"],["Ballincollig depot","location"]]},
   {type:"folder", id:"f-fin", name:"Finance", depth:0},
@@ -94,33 +100,49 @@ const FILE_TREE = [
    path:"Finance / Close", title:"Month-end close — August",
    facts:[["TYPE","XLSX · 9 sheets"],["ADDED","1 Sep 2026"],["INDEXED","Not indexed"],["OWNER","Aoife Nolan"]],
    body:["The working file behind the August close. Cash collected came in at €368k against €358k in July.",
-     "Spreadsheets are stored but not indexed by default — the numbers Helios quotes come from the ledger, not from here."],
+     "Spreadsheets are stored but not indexed by default — the numbers Pulse AI quotes come from the ledger, not from here."],
    links:[["Finance","area"],["Month-end close","workflow"]]}
 ];
 
 const ONTO_NODES = [
-  ["Organisation","entity",500,300,1,"Customers and suppliers. Balances arrive from the ledger through the record spine."],
-  ["Person","entity",300,190,1,"One entity for staff and external contacts, scoped by role rather than split in two."],
-  ["Location","entity",700,190,1,"Multi-branch as a business concept: locations plus the location permission scope."],
-  ["Team","entity",250,430,1,"Teams are records, so the team scope on a grant resolves against them."],
-  ["Task","entity",690,430,1,"Work, whatever it is attached to. Queues are one permission-filtered query."],
-  ["Approval","entity",850,320,0,"A request and its steps. Each decision is written as the person who made it."],
-  ["Invoice","ledger",390,95,0,"Read through the spine — the wholesale ledger stays the source of truth."],
-  ["Order","ledger",620,95,0,"Purchase and sales orders, linked to the organisation that raised them."],
-  ["Visit","module",860,470,0,"Contributed by site-visits, with its own table, predicate and tools."],
-  ["File","entity",140,300,0,"Documents against any record. Indexed pages are what Helios can read."],
-  ["works at","predicate",395,240,0,"Person → Organisation."],
-  ["located at","predicate",605,240,0,"Organisation → Location."],
-  ["member of","predicate",360,370,0,"Person → Team."],
-  ["relates to","predicate",600,370,0,"Task → anything."],
-  ["attached to","predicate",140,372,0,"File → anything."]
+  ["Orders","ledger",500,300,1,"Shopify and wholesale orders in flight. Online orders are keyed into the ERP by hand today; Pulse shows them side by side and prepares the import for approval."],
+  ["Customers","ledger",270,165,1,"Retail buyers across Ireland and international markets. Customer records live in the ERP; Pulse adds their open cases and spend."],
+  ["Wholesale Accounts","ledger",120,290,0,"Schools and resellers with account terms, credit limits and invoices. Credit decisions stay with a person."],
+  ["Contacts","entity",110,150,0,"The people at each account. Demo contacts only, with synthetic email addresses."],
+  ["Products","ledger",720,180,1,"Harps, lutes, bouzoukis, kalimbas and accessories as listed on the Muzikkon website."],
+  ["SKUs","ledger",900,200,0,"One stock-keeping unit per product variant, matched between Shopify and the ERP."],
+  ["Inventory","ledger",870,330,0,"On hand, allocated and available stock. The ERP stays the ledger; Pulse watches reorder points."],
+  ["Order Lines","ledger",650,430,0,"Product, quantity and price on each order. Allocation is worked out from these."],
+  ["Invoices","ledger",370,440,0,"ERP invoices. Wholesale invoices drive receivables; they are never counted as extra sales."],
+  ["Shipments","module",500,520,0,"Pick, pack and dispatch milestones plus tracking. Carriers are still to be confirmed."],
+  ["Support Cases","entity",190,500,0,"Live chat and email threads linked to the order they are about."],
+  ["Purchase Orders","entity",780,520,0,"Draft purchase orders prepared by Inventory Planner. Stock only changes on a simulated goods receipt."],
+  ["Suppliers","entity",930,470,0,"Mock supplier records. No real supplier is named or contacted in this demo."],
+  ["Employees","entity",840,60,0,"Staff who approve what agents propose. Six demo profiles plus the call participants."],
+  ["Agent Actions","entity",500,60,1,"Every proposal, run and approval by the eight Pulse agents, written to the audit history."],
+  ["places","predicate",385,232,0,"Customer → Order."],
+  ["has lines","predicate",575,365,0,"Order → Order Line."],
+  ["contains","predicate",610,240,0,"Order → Product."],
+  ["for","predicate",688,305,0,"Order Line → Product."],
+  ["sold as","predicate",810,190,0,"Product → SKU."],
+  ["has stock","predicate",795,255,0,"Product → Inventory."],
+  ["generates","predicate",435,370,0,"Order → Invoice."],
+  ["requires","predicate",500,412,0,"Order → Shipment."],
+  ["holds","predicate",245,365,0,"Wholesale Account → Outstanding Invoice."],
+  ["may be","predicate",195,228,0,"Customer → Wholesale Account."],
+  ["has contact","predicate",190,158,0,"Customer → Contact."],
+  ["relates to","predicate",290,438,0,"Support Case → Order."],
+  ["acts on","predicate",500,180,0,"Agent Action → Record."],
+  ["placed with","predicate",855,495,0,"Purchase Order → Supplier."],
+  ["replenishes","predicate",825,425,0,"Purchase Order → Inventory."],
+  ["approves","predicate",670,60,0,"Employee → Agent Action."]
 ];
 
 const ONTO_EDGES = [
-  [500,300,300,190],[500,300,700,190],[500,300,250,430],[500,300,690,430],
-  [500,300,850,320],[500,300,390,95],[500,300,620,95],[500,300,140,300],
-  [300,190,250,430],[700,190,860,470],[690,430,850,320],[690,430,860,470],
-  [300,190,140,300],[390,95,620,95]
+  [270,165,500,300],[500,300,650,430],[500,300,720,180],[650,430,720,180],
+  [720,180,900,200],[720,180,870,330],[500,300,370,440],[500,300,500,520],
+  [120,290,370,440],[270,165,120,290],[270,165,110,150],[190,500,500,300],
+  [780,520,930,470],[780,520,870,330],[500,60,500,300],[840,60,500,60]
 ];
 
 const REC_TEMPLATES = [
@@ -154,10 +176,10 @@ const REC_TEMPLATE_CATS = ["All","Records","Case work","Finance","Notes","Ops"];
 /* ---- admin hub ---- */
 /* ---- admin hub: 13 settings areas in five groups ---- */
 const PEOPLE = [
-  ["Aoife Nolan","Accounts manager","aoife@kilbridegroup.ie","Head office","active","Admin","2 min ago"],
-  ["Séamus Byrne","Senior installer","seamus@kilbridegroup.ie","Ballincollig","active","Standard","1 h ago"],
-  ["Tom Walsh","Operations lead","tom@kilbridegroup.ie","Head office","active","Manager","34 min ago"],
-  ["Niamh Cronin","Trade counter","niamh@kilbridegroup.ie","Ballincollig","active","Standard","3 h ago"],
+  ["Aoife Nolan","Accounts manager","aoife@pulse-demo.invalid","Head office","active","Admin","2 min ago"],
+  ["Séamus Byrne","Senior installer","seamus@pulse-demo.invalid","Ballincollig","active","Standard","1 h ago"],
+  ["Tom Walsh","Operations lead","tom@pulse-demo.invalid","Head office","active","Manager","34 min ago"],
+  ["Niamh Cronin","Trade counter","niamh@pulse-demo.invalid","Ballincollig","active","Standard","3 h ago"],
   ["Dermot Casey","Buyer · Casey Builders","dermot@caseybuilders.ie","—","external","External","2 days ago"],
   ["Liam Dunne","Owner · Dunne & Sons","liam@dunneandsons.ie","—","inactive","External","19 days ago"]
 ];
@@ -248,6 +270,7 @@ const BG_DEFS = [
 ];
 
 const THEMES = [
+  {id:"muzikkon", label:"Muzikkon", group:"Dark", bg:"#0c0b0a", surface:"#181512", ink:"#f5f1e8", accent:"#c9a650"},
   {id:"dark", label:"Dark", group:"Dark", bg:"#0b0c0b", surface:"#1a1c19", ink:"#f2f3ef", accent:"#c8f04b"},
   {id:"indigo", label:"Indigo", group:"Dark", bg:"#0a0b13", surface:"#1a1b26", ink:"#f0f1fa", accent:"#8b93ff"},
   {id:"slate", label:"Slate", group:"Dark", bg:"#100e0c", surface:"#211c17", ink:"#f4f0ea", accent:"#e8a14a"},
@@ -301,7 +324,7 @@ const ADMIN_CARDS = [
    blurb:"Who reports to whom, where they work and when.",
    tags:["3 locations","Europe/Dublin","EUR"],
    listLabel:"WHAT YOU CONTROL HERE",
-   rows:[["Company details","Kilbride Group"],["Departments","5"],["Teams","6"],["Locations","3"],
+   rows:[["Company details","Muzikkon"],["Departments","5"],["Teams","6"],["Locations","3"],
      ["Reporting lines","4"],["Working hours","08:00–17:30, Mon–Fri"],["Holidays","Irish public holidays"],
      ["Default currency and timezone","EUR · Europe/Dublin"]]},
 
@@ -342,7 +365,7 @@ const ADMIN_CARDS = [
    blurb:"Turn modules on, and make Pulse speak the business's own words.",
    tags:["3 installed","1 available","2 renamed terms"],
    heroLabel:"TERMINOLOGY", heroAction:"Edit terminology",
-   heroText:"Organisation reads as Merchant, and Task reads as Job, everywhere in the interface — including what Helios says back to you.",
+   heroText:"Organisation reads as Merchant, and Task reads as Job, everywhere in the interface — including what Pulse AI says back to you.",
    listLabel:"WHAT YOU CONTROL HERE",
    rows:[["Enable or disable modules","3 installed"],["Rename business terminology","2 overridden"],
      ["Create custom fields","9 fields"],["Configure statuses","6 sets"],["Edit record types","7 types"],
@@ -392,7 +415,7 @@ const ADMIN_CARDS = [
    blurb:"Logo, accent colour, templates and how agents appear.",
    tags:["Lime accent","2 templates"],
    listLabel:"WHAT YOU CONTROL HERE",
-   rows:[["Company logo","kilbride-mark.svg"],["Pulse accent colour","oklch(0.86 0.19 118)"],
+   rows:[["Company logo","muzikkon-logo.png"],["Pulse accent colour","oklch(0.86 0.19 118)"],
      ["Email templates","3"],["Document templates","2"],["Agent appearance","12 faces · 6 shells"],
      ["Customer-facing portal branding","on", true]]},
   {id:"appearance", group:"EXPERIENCE", title:"Appearance & themes", icon:"brand", tint:"#6ad0f0",
@@ -418,7 +441,7 @@ const DATA_EVENTS = [
   ["New customer created","McKenna Transport was added from a web enquiry.","Web form","McKenna Transport","Pulse","completed"],
   ["Invoice imported","INV-10512 for €3,240 arrived from Sage and matched to an open order.","Sage sync","Casey Builders","Sage","completed"],
   ["Email received","Purchase order attached — parsed and filed against the account.","accounts@caseybuilders.ie","Casey Builders","Gmail","completed"],
-  ["File uploaded","Signed framework 2026.pdf — 6 pages indexed for Helios.","Aoife Nolan","Casey Builders","Pulse","completed"],
+  ["File uploaded","Signed framework 2026.pdf — 6 pages indexed for Pulse AI.","Aoife Nolan","Casey Builders","Pulse","completed"],
   ["42 records imported","Nightly Sage sync brought in 42 invoice lines across 9 accounts.","Sage sync","9 organisations","Sage","completed"],
   ["CRM record updated","Credit limit changed on the account after the August review.","HubSpot sync","Fitzgerald Heating","HubSpot","completed"],
   ["Form submitted","Site survey request for a boiler replacement in Glanmire.","Web form","Ó Riain, Glanmire","Pulse","completed"],
@@ -429,7 +452,7 @@ const DATA_EVENTS = [
 const PEOPLE_EVENTS = [
   ["Aoife approved a refund","€412 written off on INV-10233 after the parts dispute closed.","Aoife Nolan","Glanmire Mechanical","Pulse","completed"],
   ["Tom changed a booking","Thursday's depot visit moved to 11:00 to fit the delivery window.","Tom Walsh","Ballincollig depot","Pulse","completed"],
-  ["Mac assigned a task","Lease decision handed to himself, due Thursday.","Martin Kilbride","Ballincollig depot","Pulse","completed"],
+  ["Mac assigned a task","Lease decision handed to himself, due Thursday.","Umer Farooq","Ballincollig depot","Pulse","completed"],
   ["Finance uploaded a report","August month-end close workbook, nine sheets.","Aoife Nolan","Head office","Pulse","completed"],
   ["Niamh edited customer details","Billing email corrected so reminders stop bouncing.","Niamh Cronin","Dunne & Sons Ltd","Pulse","completed"],
   ["Séamus completed a visit","Warranty callback closed — parts ordered on the spot.","Séamus Byrne","Fitzgerald Heating","Pulse","completed"],
@@ -441,11 +464,11 @@ const AI_EVENTS = [
   ["Finance Agent checked 143 invoices","Three accounts over their limit and €41.2k past 60 days.","Finance Agent","3 organisations","Agent","working"],
   ["Sales Agent qualified a new lead","McKenna Transport scored 82/100 on company size, location and enquiry detail.","Sales Agent","McKenna Transport","HubSpot","working"],
   ["Operations Agent updated a schedule","Van 04's jobs redistributed across two installers.","Operations Agent","Ballincollig depot","Agent","working"],
-  ["Helios prepared a report","Weekly management one-pager written and filed.","Helios","Management","Agent","working"],
+  ["Pulse AI prepared a report","Weekly management one-pager written and filed.","Pulse AI","Management","Agent","working"],
   ["Agent paused for approval","Chase email to Dunne & Sons drafted — needs your yes before it sends.","Finance Agent","Dunne & Sons Ltd","Agent","awaiting"],
   ["Workflow failed","Certificate renewal reminder could not find a contact for Mallow yard.","Operations","Mallow yard","Agent","failed"],
   ["Stock Watch raised order lines","Two lines below reorder point before Thursday's jobs.","Stock Watch","Munster Plumbing","Agent","working"],
-  ["Briefing Agent posted the morning brief","Two items needed you; the rest was noise.","Briefing Agent","Martin Kilbride","WhatsApp","completed"]
+  ["Briefing Agent posted the morning brief","Two items needed you; the rest was noise.","Briefing Agent","Umer Farooq","WhatsApp","completed"]
 ];
 
 const STREAM_DEFS = [
@@ -460,10 +483,15 @@ const STREAM_DEFS = [
 const NAV = [
   {label:"Home", icon:"helios", page:"Home"},
   {label:"Agents", icon:"navAgents", page:"Agents"},
-  {label:"Dashboard", icon:"navDash", page:"Dashboard", dot:true},
+  {label:"Dashboard", icon:"navDash", page:"Dashboard"},
+  {label:"Orders", icon:"mzOrders", page:"Orders", dot:true},
+  {label:"Inventory", icon:"mzInventory", page:"Inventory"},
+  {label:"Fulfilment", icon:"mzFulfil", page:"Fulfilment"},
+  {label:"Customers", icon:"mzCustomers", page:"Customers"},
+  {label:"Finance", icon:"mzFinance", page:"Finance"},
   {label:"Work", icon:"navWork", page:"Work"},
   {label:"Records", icon:"navRecords", page:"Records"},
-  {label:"Activity", icon:"pulseLine", page:"Activity", dot:true}
+  {label:"Activity", icon:"pulseLine", page:"Activity"}
 ];
 
 /* Inbox items follow the real InboxItem shape: what happened, why it matters, what I can do. */
@@ -474,7 +502,7 @@ const ITEMS = {
     detail:"Both lines are below reorder point and committed to Thursday's jobs. Pricing matches the June supplier agreement. Approving writes the decision as you and fires core.approval.updated.",
     actionLabel:"Approve", secondaryLabel:"Request changes", group:"Approvals",
     fields:[{k:"Provider",v:"core.approvals"},{k:"Requested by",v:"Aoife Nolan"},{k:"Value",v:"€14,280"},{k:"Record",v:"PO-4471"}],
-    history:[{when:"Today 08:54",text:"Aoife Nolan raised the request"},{when:"Today 08:54",text:"Routed to Martin Kilbride — over threshold"}]},
+    history:[{when:"Today 08:54",text:"Aoife Nolan raised the request"},{when:"Today 08:54",text:"Routed to Umer Farooq — over threshold"}]},
   sync:{kind:"Alert", importance:"critical", icon:ICONS.health, age:"6h",
     title:"Xero sync failed — expired token",
     why:"148 invoices have been queued since 02:14. Reconnecting posts them automatically.",
@@ -501,7 +529,7 @@ const ITEMS = {
     why:"No decision recorded against the contract and the notice period is 30 days.",
     detail:"The lease runs to 31 October. Ballincollig carried 38% of counter revenue this year; rent is 4.1% of that.",
     actionLabel:"Open record", secondaryLabel:"Assign", group:"Work",
-    fields:[{k:"Provider",v:"core.tasks"},{k:"Due",v:"Thu 27 Aug"},{k:"Assignee",v:"Martin Kilbride"},{k:"Priority",v:"high"}],
+    fields:[{k:"Provider",v:"core.tasks"},{k:"Due",v:"Thu 27 Aug"},{k:"Assignee",v:"Umer Farooq"},{k:"Priority",v:"high"}],
     history:[{when:"18 Aug",text:"Task materialised from a recurring rule"},{when:"2 Feb",text:"Contract uploaded by Aoife Nolan"}]}
 };
 const ORDER = ["sync","po","visit","auto","task"];
@@ -622,7 +650,7 @@ const TEAMS = [
   ["Accounts","3 members","Aoife Nolan","core:approval:decide"],
   ["Installers","9 members","Séamus Byrne","core:task:update"],
   ["Trade counter","6 members","Niamh Cronin","core:person:view"],
-  ["Management","2 members","Martin Kilbride","all core permissions"]
+  ["Management","2 members","Umer Farooq","all core permissions"]
 ];
 const LOCATIONS = [
   ["Head office","Little Island, Cork","14 staff","active"],
@@ -724,7 +752,7 @@ const ASPECT_DEFS = [
    tableCols:["Module","Version","Contributions","State"],
    table:[["core","0.1.0","31 routes · 21 events","always installed"],["site-visits","1.0.0","1 entity · 2 tools","installed"],["ui-showcase","0.1.0","3 pages","installed"],["wholesale","—","6 entities · 9 tools","available"]],
    metrics:[["Modules live","3","+1","up","this quarter",[.2,.2,.4,.4,.4,.6,.6,.6,1]],
-     ["Helios tools","11","+2","up","registered",[.4,.44,.5,.5,.6,.6,.7,.8,.9]],
+     ["Pulse AI tools","11","+2","up","registered",[.4,.44,.5,.5,.6,.6,.7,.8,.9]],
      ["Automation runs","1,284","+9%","up","30 days",[.5,.55,.6,.58,.66,.7,.72,.8,.86]],
      ["Failure rate","0.9%","−0.4pt","up","of all runs",[.8,.74,.7,.62,.6,.5,.44,.4,.32]]]},
   {id:"marketing", label:"Marketing", color:"#e6c78a", owner:"AOIFE NOLAN", description:"Reach, enquiries and what turned into an account.",
@@ -986,14 +1014,14 @@ const FACE_TINTS = [
 
 /* ---- ontology graph: generation, Dijkstra traversal, canvas render ---- */
 const CLUSTERS = [
-  ["Organisations", "#c8f04b", 0.00, 0.62, 46],
-  ["People",        "#6ad0f0", 0.90, 0.70, 52],
-  ["Files",         "#b06cf0", 1.75, 0.66, 58],
-  ["Tasks",         "#f0c04b", 2.55, 0.72, 44],
-  ["Invoices",      "#f0567f", 3.35, 0.60, 38],
-  ["Site visits",   "#5fe0a8", 4.15, 0.70, 40],
-  ["Locations",     "#f0803a", 4.95, 0.64, 30],
-  ["Approvals",     "#5f7cf0", 5.65, 0.72, 34]
+  ["Customers",     "#c9a650", 0.00, 0.62, 46],
+  ["Products",      "#8fb5a6", 0.90, 0.70, 52],
+  ["Orders",        "#b08a62", 1.75, 0.66, 58],
+  ["Inventory",     "#8a9bb8", 2.55, 0.72, 44],
+  ["Invoices",      "#c4795f", 3.35, 0.60, 38],
+  ["Shipments",     "#a99ac9", 4.15, 0.70, 40],
+  ["Support cases", "#7fb7c9", 4.95, 0.64, 30],
+  ["Agent actions", "#d9b46a", 5.65, 0.72, 34]
 ];
 
 function mulberry(seed){

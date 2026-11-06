@@ -15,16 +15,7 @@ export default function HeliosMini({ v }: Props) {
               <path d="M2 12h4l2.5-6 3.5 12 3-8 2 2h5" />
             </svg>
           </span>
-          <div style={css(v.miniTabTrack)}>
-            <span style={css(v.miniTabThumb)} />
-            {arr(v.miniTabs).map((t: any, i115: number) => (
-              <Fragment key={i115}>
-                <button onClick={t?.pick} style={css(t?.style)}>
-                  {txt(t?.label)}
-                </button>
-              </Fragment>
-            ))}
-          </div>
+          <span style={{"fontSize":"14px","fontWeight":"600","letterSpacing":"-.2px"}}>Pulse AI</span>
           <div style={{"flex":"1","minWidth":"4px"}} />
           <button className="ixm" onClick={v.goHomeChat} title="Open full conversation" style={{"width":"28px","height":"28px","flex":"none","border":"1px solid var(--border)","borderRadius":"var(--r-ctl,10px)","background":"none","color":"var(--dim)","cursor":"pointer","display":"flex","alignItems":"center","justifyContent":"center","transition":"color .2s var(--ease),border-color .2s var(--ease)"}}>
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round">

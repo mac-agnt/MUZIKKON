@@ -42,3 +42,14 @@ That wipes the guards above. Don't run it on a customised copy.
 
 - `npm run typecheck` passes.
 - Check Home, Dashboard and every Records tab in the browser: highlight on the right tab, Ontology first, Agents under Home, nothing extra in the Home centre.
+
+## Muzikkon build (this copy)
+
+This copy is the Muzikkon sales demo. Rules specific to it:
+
+- All demo data lives in `src/muz/dataset.ts`; all state changes go through `src/muz/store.ts` actions; every total comes from `src/muz/selectors.ts`. Never hard-code a number in a page.
+- Scenario date is fixed at Friday 6 November 2026 (`SNAPSHOT_DATE`). Do not use `new Date()` for business logic.
+- Nothing may imply a real send, import or payment. Use "simulated", "demo", "draft, not sent". Keep the four integration states (used by Muzikkon / connected to Pulse / proposed / simulated) separate in Settings.
+- Sidebar is Home, Agents, Dashboard, Orders, Inventory, Fulfilment, Customers, Finance, Work, Records, Activity (+ Settings). Tabs per module are in `src/muz/tabs.ts`.
+- Records tabs are Ontology (original graph, unchanged), Records Explorer, Relationships, Audit History (Files and Contacts were replaced by the client tabs).
+- The Home centre column stays clean; snapshot, briefing, attention, pipeline and AI actions live in the right rail (`src/muz/HomeWidgets.tsx`).

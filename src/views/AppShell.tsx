@@ -4,20 +4,19 @@ import AgentFace from "../components/AgentFace";
 import NavThumb from "../components/NavThumb";
 import DashboardKpiBand from "./pages/DashboardKpiBand";
 import Home from "./pages/Home";
-import Work from "./pages/Work";
 import Records from "./pages/Records";
-import RecordsFiles from "./pages/RecordsFiles";
 import RecordsOntology from "./pages/RecordsOntology";
-import Activity from "./pages/Activity";
-import Settings from "./pages/Settings";
-import Dashboard from "./pages/Dashboard";
-import Agents from "./pages/Agents";
 import HeliosMini from "./overlays/HeliosMini";
 import WorkViewer from "./overlays/WorkViewer";
 import AgentStudio from "./overlays/AgentStudio";
 import NewRecordDialog from "./overlays/NewRecordDialog";
 import CommandPalette from "./overlays/CommandPalette";
 import BackgroundGallery from "./overlays/BackgroundGallery";
+import MuzPage from "../muz/MuzPage";
+import RecordsExtra from "../muz/pages/RecordsExtra";
+import DrawerHost from "../muz/drawers";
+import { Toasts } from "../muz/ui";
+import { MUZ_PAGES } from "../muz/tabs";
 
 type Props = { v: any };
 
@@ -32,14 +31,14 @@ export default function AppShell({ v }: Props) {
         <span style={css(v.railThumbStyle)} />
         <div style={css(cat(v.railRowStyle, "margin-bottom:22px"))}>
           <button className={cx("ix0", "ix1")} onClick={v.toggleRail} title={v.railLabel} style={{"width":"36px","height":"36px","flex":"none","border":"0","borderRadius":"var(--cta-r,11px)","background":"var(--accent-fill,var(--accent))","color":"var(--on-accent)","boxShadow":"var(--accent-glow,none)","cursor":"pointer","display":"flex","alignItems":"center","justifyContent":"center","fontSize":"13px","fontWeight":"600","padding":"0","transition":"transform .2s var(--ease)"}}>
-            {"K"}
+            {"M"}
           </button>
           <span style={css(v.brandStyle)}>
-            <span style={{"display":"block","fontSize":"15px","fontWeight":"600","letterSpacing":"-.3px","color":"var(--ink)"}}>
-              {"Kilbride Group"}
+            <span className="mz-logo-tile" style={{"display":"flex","width":"118px","height":"40px","padding":"3px 8px"}}>
+              <img src="/muz/muzikkon-logo.png" alt="Muzikkon Musical Instruments" style={{"width":"100%","height":"100%","objectFit":"contain"}} />
             </span>
-            <span style={{"display":"block","marginTop":"2px","fontSize":"9px","fontWeight":"500","letterSpacing":".16em","color":"var(--accent)"}}>
-              {"PULSE · OPERATIONS"}
+            <span style={{"display":"block","marginTop":"5px","fontSize":"9px","fontWeight":"500","letterSpacing":".16em","color":"var(--accent)"}}>
+              {"POWERED BY PULSE"}
             </span>
           </span>
           {v.railOpen && (
@@ -96,14 +95,14 @@ export default function AppShell({ v }: Props) {
               </div>
               <div style={{"display":"flex","alignItems":"center","gap":"11px","marginTop":"12px"}}>
                 <div style={{"width":"40px","height":"40px","flex":"none","borderRadius":"999px","background":"var(--accent-soft)","color":"var(--accent)","display":"flex","alignItems":"center","justifyContent":"center","fontSize":"13px","fontWeight":"600"}}>
-                  {"MK"}
+                  {"UF"}
                 </div>
                 <div style={{"minWidth":"0"}}>
                   <div style={{"fontSize":"17px","fontWeight":"600","letterSpacing":"-.3px","color":"var(--ink)","whiteSpace":"nowrap","overflow":"hidden","textOverflow":"ellipsis"}}>
-                    {"Martin Kilbride"}
+                    {"Umer Farooq"}
                   </div>
                   <div style={{"fontSize":"12.5px","color":"var(--faint)","marginTop":"2px","whiteSpace":"nowrap","overflow":"hidden","textOverflow":"ellipsis"}}>
-                    {"Kilbride Group · Owner"}
+                    {"Muzikkon · demo login"}
                   </div>
                 </div>
               </div>
@@ -143,14 +142,14 @@ export default function AppShell({ v }: Props) {
             </button>
             <div style={css(cat(v.railRowStyle, "margin-top:10px;padding:12px 10px;border-top:1px solid var(--border)"))}>
               <div style={{"width":"40px","height":"40px","flex":"none","borderRadius":"12px","background":"var(--surface-2)","border":"1px solid var(--border)","color":"var(--body)","display":"flex","alignItems":"center","justifyContent":"center","fontSize":"12px","fontWeight":"600","cursor":"pointer"}}>
-                {"MK"}
+                {"UF"}
               </div>
               <span style={css(v.brandStyle)}>
                 <span style={{"display":"block","fontSize":"14px","fontWeight":"500","color":"var(--ink)"}}>
-                  {"Martin Kilbride"}
+                  {"Umer Farooq"}
                 </span>
                 <span style={{"display":"block","marginTop":"2px","fontSize":"12px","color":"var(--faint)"}}>
-                  {"Kilbride Group · Owner"}
+                  {"Muzikkon · demo login"}
                 </span>
               </span>
             </div>
@@ -178,27 +177,6 @@ export default function AppShell({ v }: Props) {
         <div style={css(v.headerFieldStyle)} />
         <header style={{"position":"relative","zIndex":"4","flex":"none","width":"100%","padding":"18px 28px","boxSizing":"border-box","borderBottom":"1px solid var(--border)"}}>
           <div style={css(v.headerPillStyle)}>
-            {v.isAgents && (
-              <>
-                <div style={{"flex":"0 0 auto","display":"flex","alignItems":"center","gap":"9px","padding":"0 8px 0 5px"}}>
-                  <AgentFace shape={v.agent?.shape} state={v.agent?.state} tint={v.agent?.tint} size={"30"} />
-                  <div style={{"minWidth":"0"}}>
-                    <div style={{"fontSize":"12.5px","fontWeight":"500","lineHeight":"1.2","whiteSpace":"nowrap"}}>
-                      {txt(v.agent?.name)}
-                    </div>
-                    <div style={{"fontFamily":"var(--mono)","fontSize":"9.5px","color":"var(--faint)","lineHeight":"1.3"}}>
-                      {txt(v.agent?.statusLabel)}
-                    </div>
-                  </div>
-                  <button className={cx("ix6", "ix1")} onClick={v.openBuilder} title="New agent" style={{"width":"32px","height":"32px","flex":"none","border":"1px solid var(--accent-line)","borderRadius":"999px","background":"var(--accent-faint)","color":"var(--accent)","cursor":"pointer","display":"flex","alignItems":"center","justifyContent":"center","transition":"background .2s var(--ease),transform .18s var(--ease)"}}>
-                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-                      <path d="M12 5v14 M5 12h14" />
-                    </svg>
-                  </button>
-                </div>
-                <div style={{"width":"1px","height":"18px","flex":"none","margin":"0 4px","background":"var(--border)"}} />
-              </>
-            )}
             {v.showPillNav && (
               <>
                 <div style={css(v.navGroupStyle)}>
@@ -311,10 +289,10 @@ export default function AppShell({ v }: Props) {
                         <>
                           <div style={{"minWidth":"0"}}>
                             <div style={{"fontSize":"12px","fontWeight":"500","lineHeight":"1.2","whiteSpace":"nowrap"}}>
-                              {"Martin Kilbride"}
+                              {"Umer Farooq"}
                             </div>
                             <div style={{"fontSize":"10.5px","color":"var(--faint)","lineHeight":"1.2"}}>
-                              {"Owner"}
+                              {"Muzikkon demo"}
                             </div>
                           </div>
                         </>
@@ -386,10 +364,9 @@ export default function AppShell({ v }: Props) {
             </div>
           </>
         )}
-        {v.isDashboard && <DashboardKpiBand v={v} />}
+        {v.isDashboard && v.muzTab === "executive" && <DashboardKpiBand v={v} />}
         <div data-scroll-main="1" style={{"flex":"1","minHeight":"0","overflowY":"auto","overflowX":"hidden","scrollbarWidth":"none"}}>
           {v.isChat && <Home v={v} />}
-          {v.isWork && <Work v={v} />}
           {v.isRecords && <Records v={v} />}
           {v.rec?.isContacts && (
             <>
@@ -469,9 +446,7 @@ export default function AppShell({ v }: Props) {
               </div>
             </>
           )}
-          {v.rec?.isFiles && <RecordsFiles v={v} />}
           {v.rec?.isOntology && <RecordsOntology v={v} />}
-          {v.isActivity && <Activity v={v} />}
           {v.act?.detailOpen && (
             <>
               <div onClick={v.act?.closeDetail} style={{"position":"fixed","inset":"0","zIndex":"68","background":"var(--scrim)","backdropFilter":"blur(6px)","display":"flex","justifyContent":"flex-end"}}>
@@ -575,9 +550,8 @@ export default function AppShell({ v }: Props) {
               </div>
             </>
           )}
-          {v.isSettings && <Settings v={v} />}
-          {v.isDashboard && <Dashboard v={v} />}
-          {v.isAgents && <Agents v={v} />}
+          {v.isRecords && v.recId !== "ontology" && <RecordsExtra tab={v.recId} />}
+          {MUZ_PAGES.includes(v.page) && <MuzPage page={v.page} tab={v.muzTab} v={v} />}
         </div>
       </main>
       {v.showFab && (
@@ -818,6 +792,8 @@ export default function AppShell({ v }: Props) {
         </>
       )}
       {v.newRec?.open && <NewRecordDialog v={v} />}
+      <DrawerHost />
+      <Toasts />
       {v.paletteOpen && <CommandPalette v={v} />}
       {v.bgGallery?.open && <BackgroundGallery v={v} />}
     </div>
